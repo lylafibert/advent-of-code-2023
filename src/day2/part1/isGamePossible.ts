@@ -1,6 +1,6 @@
-import { COLOURS } from "./constants";
-import { getCubesRequriedForGame } from "./getCubesRequiredForGame";
-import { Cubes, Game } from "./types";
+import { COLOURS } from "../constants";
+import { getCubesRequriedForGame } from "../getCubesRequiredForGame";
+import { Cubes, Game } from "../types";
 
 export const isGamePossible = ({
   bag,

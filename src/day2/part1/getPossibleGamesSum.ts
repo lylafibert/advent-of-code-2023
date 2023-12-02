@@ -1,6 +1,6 @@
 import { isGamePossible } from "./isGamePossible";
-import { parseGameRecord } from "./parseGameRecord";
-import { Cubes } from "./types";
+import { parseGameRecord } from "../parseGameRecord";
+import { Cubes } from "../types";
 
 export const getPossibleGamesSum = ({
   bag,

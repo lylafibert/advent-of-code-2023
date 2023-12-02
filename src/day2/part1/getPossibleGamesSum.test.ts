@@ -1,4 +1,4 @@
-import { gameRecords } from "./gamesRecord";
+import { gameRecords } from "../gameRecords";
 import { getPossibleGamesSum } from "./getPossibleGamesSum";
 
 const bag = { red: 12, green: 13, blue: 14 };
