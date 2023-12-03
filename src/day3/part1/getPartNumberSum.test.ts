@@ -1,4 +1,4 @@
-import { ENGINE_SCHEMATIC } from "./engineSchematic";
+import { ENGINE_SCHEMATIC } from "../engineSchematic";
 import { getPartNumberSum } from "./getPartNumberSum";
 
 const exampleEngineSchematicA = [
