@@ -1,6 +1,16 @@
 import { getSeedLocation } from "./getSeedLocation";
 import { Almanac } from "./types";
 
+const mapKeys = [
+  "seed-soil",
+  "soil-fertilizer",
+  "fertilizer-water",
+  "water-light",
+  "light-temperature",
+  "temperature-humidity",
+  "humidity-location",
+];
+
 const exampleAlmanac: Almanac = {
   "seed-soil": [
     [52, 50, 48],
@@ -47,6 +57,7 @@ describe("getSeedLocation", () => {
     expect(
       getSeedLocation({
         seedNumber: 79,
+        mapKeys,
         orderedAlmanac: exampleAlmanac,
       })
     ).toEqual(82);
@@ -54,6 +65,7 @@ describe("getSeedLocation", () => {
     expect(
       getSeedLocation({
         seedNumber: 14,
+        mapKeys,
         orderedAlmanac: exampleAlmanac,
       })
     ).toEqual(43);
@@ -61,6 +73,7 @@ describe("getSeedLocation", () => {
     expect(
       getSeedLocation({
         seedNumber: 55,
+        mapKeys,
         orderedAlmanac: exampleAlmanac,
       })
     ).toEqual(86);
@@ -68,6 +81,7 @@ describe("getSeedLocation", () => {
     expect(
       getSeedLocation({
         seedNumber: 13,
+        mapKeys,
         orderedAlmanac: exampleAlmanac,
       })
     ).toEqual(35);
