@@ -13,47 +13,21 @@ const maps = [
 
 export const getSeedLocation = ({
   seedNumber,
-  almanac,
+  orderedAlmanac,
 }: {
   seedNumber: number;
-  almanac: Almanac;
+  orderedAlmanac: Almanac;
 }): number => {
-  const soilNumber = getDestinationNumber({
-    sourceNumber: seedNumber,
-    orderedMap: orderMap(almanac["seed-soil"]),
-  });
+  return maps.reduce((sourceNumber, mapKey) => {
+    // @ts-ignore
 
-  const fertilizerNumber = getDestinationNumber({
-    sourceNumber: soilNumber,
-    orderedMap: orderMap(almanac["soil-fertilizer"]),
-  });
-
-  const waterNumber = getDestinationNumber({
-    sourceNumber: fertilizerNumber,
-    orderedMap: orderMap(almanac["fertilizer-water"]),
-  });
-
-  const lightNumber = getDestinationNumber({
-    sourceNumber: waterNumber,
-    orderedMap: orderMap(almanac["water-light"]),
-  });
-
-  const temperatureNumber = getDestinationNumber({
-    sourceNumber: lightNumber,
-    orderedMap: orderMap(almanac["light-temperature"]),
-  });
-
-  const humidityNumber = getDestinationNumber({
-    sourceNumber: temperatureNumber,
-    orderedMap: orderMap(almanac["temperature-humidity"]),
-  });
-
-  const locationNumber = getDestinationNumber({
-    sourceNumber: humidityNumber,
-    orderedMap: orderMap(almanac["humidity-location"]),
-  });
-
-  return locationNumber;
+    // console.log({ sourceNumber, currentMap: ordredAlmanac[mapKey] });
+    return getDestinationNumber({
+      sourceNumber,
+      // @ts-ignore
+      orderedMap: orderedAlmanac[mapKey],
+    });
+  }, seedNumber);
 };
 
 const orderMap = (numberMap: NumberMap): NumberMap =>

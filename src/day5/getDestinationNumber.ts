@@ -7,13 +7,17 @@ export const getDestinationNumber = ({
   sourceNumber: number;
   orderedMap: NumberMap;
 }): number => {
-  console.log({ sourceNumber, orderedMap });
   if (orderedMap[0][1] > sourceNumber) return sourceNumber;
 
-  const mapIndex =
-    orderedMap.findIndex(([, sourceStart]) => sourceStart > sourceNumber) - 1;
+  let mapLine = orderedMap[orderedMap.length - 1];
 
-  const [destinationStart, sourceStart, range] = orderedMap[mapIndex];
+  if (mapLine[1] > sourceNumber) {
+    const mapIndex =
+      orderedMap.findIndex(([, sourceStart]) => sourceStart > sourceNumber) - 1;
+    mapLine = orderedMap[mapIndex];
+  }
+
+  const [destinationStart, sourceStart, range] = mapLine;
 
   const sourceNumberIsInRange = sourceStart + range >= sourceNumber;
 

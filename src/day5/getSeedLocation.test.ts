@@ -3,21 +3,21 @@ import { Almanac } from "./types";
 
 const exampleAlmanac: Almanac = {
   "seed-soil": [
-    [50, 98, 2],
     [52, 50, 48],
+    [50, 98, 2],
   ],
 
   "soil-fertilizer": [
+    [39, 0, 15],
     [0, 15, 37],
     [37, 52, 2],
-    [39, 0, 15],
   ],
 
   "fertilizer-water": [
-    [49, 53, 8],
-    [0, 11, 42],
     [42, 0, 7],
     [57, 7, 4],
+    [0, 11, 42],
+    [49, 53, 8],
   ],
 
   "water-light": [
@@ -26,14 +26,14 @@ const exampleAlmanac: Almanac = {
   ],
 
   "light-temperature": [
-    [45, 77, 23],
     [81, 45, 19],
     [68, 64, 13],
+    [45, 77, 23],
   ],
 
   "temperature-humidity": [
-    [0, 69, 1],
     [1, 0, 69],
+    [0, 69, 1],
   ],
 
   "humidity-location": [
@@ -47,29 +47,29 @@ describe("getSeedLocation", () => {
     expect(
       getSeedLocation({
         seedNumber: 79,
-        almanac: exampleAlmanac,
+        orderedAlmanac: exampleAlmanac,
       })
     ).toEqual(82);
 
-    // expect(
-    //   getSeedLocation({
-    //     seedNumber: 14,
-    //     almanac: exampleAlmanac,
-    //   })
-    // ).toEqual(43);
+    expect(
+      getSeedLocation({
+        seedNumber: 14,
+        orderedAlmanac: exampleAlmanac,
+      })
+    ).toEqual(43);
 
-    // expect(
-    //   getSeedLocation({
-    //     seedNumber: 55,
-    //     almanac: exampleAlmanac,
-    //   })
-    // ).toEqual(86);
+    expect(
+      getSeedLocation({
+        seedNumber: 55,
+        orderedAlmanac: exampleAlmanac,
+      })
+    ).toEqual(86);
 
-    // expect(
-    //   getSeedLocation({
-    //     seedNumber: 13,
-    //     almanac: exampleAlmanac,
-    //   })
-    // ).toEqual(35);
+    expect(
+      getSeedLocation({
+        seedNumber: 13,
+        orderedAlmanac: exampleAlmanac,
+      })
+    ).toEqual(35);
   });
 });
