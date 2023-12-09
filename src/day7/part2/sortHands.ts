@@ -1,6 +1,6 @@
 import { CARDS } from "./constants";
 import { getHandType } from "./getHandType";
-import { Card, HandData } from "./types";
+import { Card, HandData, HandType } from "./types";
 const fs = require("fs");
 
 export const sortHands = (hands: HandData[]): HandData[] => {

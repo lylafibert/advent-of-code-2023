@@ -22,7 +22,7 @@ export const getHandType = (hand: Hand): HandType => {
 
   const cardCounts = Object.values(handInfo).sort((a, b) => b - a);
 
-  if (cardCounts.length === 1) return HandType.FiveOfAKind;
+  if (jokerCount === 5 || cardCounts.length === 1) return HandType.FiveOfAKind;
 
   if (
     jokerCount === 3 ||

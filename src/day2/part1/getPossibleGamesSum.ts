@@ -11,6 +11,5 @@ export const getPossibleGamesSum = ({
 }): number =>
   gameRecords.reduce((sum, currentGameRecord) => {
     const { game, id } = parseGameRecord(currentGameRecord);
-    // console.log({ currentGameRecord, game, id });
     return isGamePossible({ bag, game }) ? sum + id : sum;
   }, 0);
