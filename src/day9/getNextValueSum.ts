@@ -1,8 +1,15 @@
 import { getNextValueInHistory } from "./getNextValueInHistory";
-import { Sequence } from "./types";
+import { Direction, Sequence } from "./types";
 
-export const getNextValueSum = (histories: Sequence[]): number =>
+export const getNextValueSum = ({
+  histories,
+  direction,
+}: {
+  histories: Sequence[];
+  direction: Direction;
+}): number =>
   histories.reduce(
-    (sum, currentHistory) => getNextValueInHistory(currentHistory) + sum,
+    (sum, currentHistory) =>
+      getNextValueInHistory({ history: currentHistory, direction }) + sum,
     0
   );

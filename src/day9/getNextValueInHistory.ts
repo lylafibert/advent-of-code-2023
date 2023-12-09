@@ -1,8 +1,14 @@
 import { extrapolateHistory } from "./extrapolateHistory";
 import { getNextSequence } from "./getNextSequence";
-import { Sequence } from "./types";
+import { Direction, Sequence } from "./types";
 
-export const getNextValueInHistory = (history: Sequence): number => {
+export const getNextValueInHistory = ({
+  history,
+  direction,
+}: {
+  history: Sequence;
+  direction: Direction;
+}): number => {
   const sequences = [history];
   let reachedAllZeroes = false;
 
@@ -11,5 +17,5 @@ export const getNextValueInHistory = (history: Sequence): number => {
     sequences.unshift(nextSequence);
     reachedAllZeroes = isAllZeroes;
   }
-  return extrapolateHistory(sequences);
+  return extrapolateHistory({ sequences, direction });
 };
