@@ -22,6 +22,6 @@ const exampleScratchcards = {
 describe("getTotalScratchCards", () => {
   it("returns how many points a card is worth", () => {
     expect(getTotalScratchCards(exampleScratchcards)).toEqual(30);
-    // expect(getTotalScratchCards(scratchCards)).toEqual(21821);
+    expect(getTotalScratchCards(scratchCards)).toEqual(5539496);
   });
 });
