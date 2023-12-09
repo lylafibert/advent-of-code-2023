@@ -1,5 +1,5 @@
 import { getTotalWinnings } from "./getTotalWinnings";
-import { hands } from "./hands";
+import { hands } from "../hands";
 
 const exampleHands = [
   { hand: "32T3K", bid: 765 },
@@ -11,7 +11,10 @@ const exampleHands = [
 
 describe("getTotalWinnings", () => {
   it("returns the total winnings of a set of hands", () => {
-    expect(getTotalWinnings(exampleHands)).toEqual(6440);
+    expect(getTotalWinnings(exampleHands)).toEqual(5905);
+    // not 253666245
+    // not 253500332
+    // not 253713193
     expect(getTotalWinnings(hands)).toEqual(253205868);
   });
 });
