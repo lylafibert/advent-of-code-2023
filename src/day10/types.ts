@@ -16,4 +16,10 @@ export enum Direction {
   West = "West",
 }
 
+export interface Step {
+  pipe: Pipe;
+  position: Position;
+  comingFrom: Direction;
+}
+
 export type Diagram = string[];
