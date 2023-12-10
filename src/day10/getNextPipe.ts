@@ -1,7 +1,7 @@
 import { getNextDirection } from "./getNextDirection";
 import { Diagram, Direction, Pipe, Position, Step } from "./types";
 
-const OPPOSITE_DIRECTION_MAP = {
+export const OPPOSITE_DIRECTION_MAP = {
   [Direction.North]: Direction.South,
   [Direction.East]: Direction.West,
   [Direction.South]: Direction.North,
@@ -22,7 +22,6 @@ export const getNextPipe = ({
   const [x, y] = newPosition;
   const newPipe = diagram[y][x] as Pipe;
   const newComingFrom = OPPOSITE_DIRECTION_MAP[direction];
-  console.log({ direction, newPosition, newPipe, pipe, position, comingFrom });
 
   return {
     pipe: newPipe,

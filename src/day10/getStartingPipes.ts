@@ -15,10 +15,10 @@ const CONNECTING_WEST_PIPES = [Pipe.EastWest, Pipe.SouthEast, Pipe.NorthEast];
 
 export const getStartingPipes = ({
   diagram,
-  currentPosition,
+  startPosition,
 }: {
   diagram: Diagram;
-  currentPosition: Position;
+  startPosition: Position;
 }): { position: Position; pipe: Pipe; direction: Direction }[] => {
   const connectingPipes: {
     position: Position;
@@ -26,7 +26,7 @@ export const getStartingPipes = ({
     direction: Direction;
   }[] = [];
 
-  const [x, y] = currentPosition;
+  const [x, y] = startPosition;
 
   const north: Position = [x, y - 1];
   const east: Position = [x + 1, y];
